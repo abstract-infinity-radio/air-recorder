@@ -26,7 +26,7 @@ var CONFIG = {
     // See https://github.com/jantimon/html-webpack-plugin
     indexHtmlTemplate: './src/AirRecorder.Client/index.html',
     fsharpEntry: './.fable-build/App.js',
-    cssEntry: './src/AirRecorder.Client/styles/styles.css',
+    cssEntry: './src/AirRecorder.Client/styles/main.sass',
     outputDir: './publish/app/public',
     assetsDir: './src/AirRecorder.Client/public',
     devServerPort: 8080,
@@ -34,6 +34,10 @@ var CONFIG = {
     // to a external API server. See https://webpack.js.org/configuration/dev-server/#devserver-proxy
     devServerProxy: {
         '/api/**': {
+            target: 'http://localhost:' + (process.env.SERVER_PROXY_PORT || "5000"),
+            changeOrigin: true
+        },
+        '/download/**': {
             target: 'http://localhost:' + (process.env.SERVER_PROXY_PORT || "5000"),
             changeOrigin: true
         },
@@ -138,7 +142,8 @@ module.exports = {
                         : 'style-loader',
                     'css-loader',
                     'resolve-url-loader',
-                    'postcss-loader'
+                    'postcss-loader',
+                    'sass-loader',
                 ],
             }
         ]

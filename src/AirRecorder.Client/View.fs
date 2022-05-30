@@ -1,39 +1,30 @@
 ﻿module AirRecorder.Client.View
 
 open Feliz
-open Router
-open Elmish
-open SharedView
-
-type Msg =
-    | UrlChanged of Page
-
-type State = {
-    Page : Page
-}
-
-let init () =
-    let nextPage = Router.currentPath() |> Page.parseFromUrlSegments
-    { Page = nextPage }, Cmd.navigatePage nextPage
-
-let update (msg:Msg) (state:State) : State * Cmd<Msg> =
-    match msg with
-    | UrlChanged page -> { state with Page = page }, Cmd.none
+open AirRecorder.Client.Components
+open System
 
 [<ReactComponent>]
-let AppView (state:State) (dispatch:Msg -> unit) =
-    let navigation =
-        Html.div [
-            Html.a("Home", Page.Index)
-            Html.span " | "
-            Html.a("About", Page.About)
+let AppView () =
+    let (timestamp, setTimestamp) = React.useState (DateTimeOffset.UtcNow)
+
+    let updateSessionList () = setTimestamp (DateTimeOffset.UtcNow)
+
+    Html.div [
+        prop.className "columns"
+        prop.children [
+            Html.div [
+                prop.className "column is-6-tablet"
+                prop.children [
+                    Recorder.View(updateSessionList)
+                ]
+            ]
+            Html.div [
+                prop.className "column is-6-tablet"
+                prop.children [
+                    Html.h1 "Listen"
+                    SessionList.View(timestamp)
+                ]
+            ]
         ]
-    let render =
-        match state.Page with
-        | Page.Index -> Pages.Index.IndexView ()
-        | Page.About -> Html.text "SAFEr Template"
-    React.router [
-        router.pathMode
-        router.onUrlChanged (Page.parseFromUrlSegments >> UrlChanged >> dispatch)
-        router.children [ navigation; render ]
     ]

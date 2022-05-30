@@ -1,6 +1,5 @@
 root = true
 
-
 [*]
 indent_style = space
 indent_size = 4
@@ -8,5 +7,17 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = false
 
-[*.{yml,yaml}]
+[*.{yml,yaml,json}]
 indent_size = 2
+
+[*.fs]
+indent_size=4
+max_line_length=120
+fsharp_space_before_member=true
+fsharp_space_before_class_constructor=true
+fsharp_space_before_colon=true
+fsharp_space_before_semicolon=true
+fsharp_indent_on_try_with=true
+fsharp_multiline_block_brackets_on_same_column=false
+fsharp_newline_between_type_definition_and_members=true
+fsharp_single_argument_web_mode=true

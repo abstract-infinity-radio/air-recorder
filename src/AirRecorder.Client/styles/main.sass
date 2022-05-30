@@ -1,0 +1,73 @@
+@charset "utf-8"
+
+$gap: 16px
+$primary: #0000FF
+$secondary: #00FF00
+
+@font-face
+    font-family: Standard
+    src: url("https://b-air.infinity.radio/static/frontend/standard-book-webfont.woff") format("woff"), url("https://b-air.infinity.radio/static/frontend/standard-book-webfont.woff2") format("woff2"), url("https://b-air.infinity.radio/static/frontend/standard-book-webfont.eot") format("eot")
+    font-weight: normal
+
+@font-face
+    font-family: Standard
+    src: url("https://b-air.infinity.radio/static/frontend/standard-book-italic-webfont.woff") format("woff"), url("https://b-air.infinity.radio/static/frontend/standard-book-italic-webfont.woff2") format("woff2"), url("https://b-air.infinity.radio/static/frontend/standard-book-italic-webfont.eot") format("eot")
+    font-weight: normal
+    font-style: italic
+
+@font-face
+    font-family: Standard
+    src: url("https://b-air.infinity.radio/static/frontend/standard-bold-webfont.woff") format("woff"), url("https://b-air.infinity.radio/static/frontend/standard-bold-webfont.woff2") format("woff2"), url("https://b-air.infinity.radio/static/frontend/standard-bold-webfont.eot") format("eot")
+    font-weight: bold
+    font-style: normal
+
+@font-face
+    font-family: Standard
+    src: url("https://b-air.infinity.radio/static/frontend/standard-bold-italic-webfont.woff") format("woff"), url("https://b-air.infinity.radio/static/frontend/standard-bold-italic-webfont.woff2") format("woff2"), url("https://b-air.infinity.radio/static/frontend/standard-bold-italic-webfont.eot") format("eot")
+    font-weight: bold
+    font-style: italic
+
+.nowrap
+    white-space: nowrap
+
+.button:disabled
+    background-color: grey !important
+
+.creative-europe.creative-europe
+    margin-top: 0
+    border: none
+
+.navbar-item.navbar-item
+    &:hover
+        text-decoration: none
+
+        &:after
+            background: none
+
+body.area
+    &:after
+        left: 48%
+
+.session
+    padding-top: calc($gap / 2)
+    border-top: solid 6px $primary
+
+.recording
+    margin-top: $gap
+
+.recording__meta
+    display: flex
+    justify-content: space-between
+    gap: $gap
+
+.recording__name
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+.recording__size
+    color: $secondary
+    font-weight: bold
+
+.recording__audio
+    width: 100%

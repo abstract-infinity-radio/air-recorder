@@ -1,0 +1,17 @@
+{
+    "configurations": [
+    {
+        "name": ".NET Core Launch (web)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/src/AirRecorder.Server/bin/Debug/net6.0/AirRecorder.Server.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/src/AirRecorder.Server",
+        "stopAtEntry": false,
+        "env": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+    }
+    ]
+}

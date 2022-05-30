@@ -7,6 +7,5 @@ Fable.Elmish.Debugger
 Fable.Elmish.HMR
 Feliz
 Feliz.Router
-Feliz.DaisyUI
 Feliz.UseElmish
-
+Feliz.UseDeferred
