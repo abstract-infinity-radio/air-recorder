@@ -51,8 +51,19 @@ let View (timestamp) =
                     prop.className "recordings"
                     prop.children (
                         session.Recordings
+                        |> List.filter (fun i -> not (i.Name.EndsWith ".zip"))
                         |> List.map (renderRecording session.Name)
+
                     )
+                ]
+                Html.div [
+                    prop.className "mt-4"
+                    prop.children [
+                        Html.a [
+                            prop.href (sprintf "%A/%A/%A" "/download" session.Name "bundle.zip")
+                            prop.text "Download bundle"
+                        ]
+                    ]
                 ]
             ]
         ]
