@@ -28,6 +28,7 @@ type Startup (cfg : IConfiguration, env : IWebHostEnvironment) =
         let dir = Path.GetFullPath(config.GetValue("Recordings:Directory"))
 
         app
+            .UseDefaultFiles()
             .UseStaticFiles()
             .UseStaticFiles(
                 StaticFileOptions(
